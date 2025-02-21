@@ -88,7 +88,7 @@ Try running the main.py program
 
 After setup and running the program the output should look like this:
 
-"""
+```
 python main.py
 
 Natural Language Query: Show me all active customers
@@ -199,4 +199,5 @@ Result: [
     "price": 10.99
   }
 ]
-"""
+
+```
