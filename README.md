@@ -22,10 +22,10 @@ Solution Explanation
 ----
 
 **Step-by-Step Setup and Running Instructions**
-Homebrew (install with: /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)")
-Python 3.11+ (if not already installed, install with: brew install python)
-Ollama (install with: brew install ollama, then start it with "ollama serve" or from Homebrew "brew services start ollama"")
-Git (install with: brew install git)
+*Homebrew (install with: /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)")
+*Python 3.11+ (if not already installed, install with: brew install python)
+*Ollama (install with: brew install ollama, then start it with "ollama serve" or from Homebrew "brew services start ollama"")
+*Git (install with: brew install git)
 
 **Create a project directory**
 mkdir telecom-genai-demo
