@@ -129,6 +129,7 @@ python setup_db.py
 Requirements File
 File: requirements.txt
 ```
+python==3.11.11
 chromadb==0.4.24
 graphql-core==3.2.3
 langchain==0.1.0
