@@ -3,6 +3,7 @@ This a work in progress.
 A demo that translates NL queries into GraphQL requests using local Ollama and ChromaDB vector database.
 
 **Architecture Diagram**
+```
 [User NL Query] --> [Python App] --> [Ollama Local Model (LLaMA 3)]
                         |                   |
                         v                   v
@@ -10,7 +11,7 @@ A demo that translates NL queries into GraphQL requests using local Ollama and C
                         |
                         v
 [Generated GraphQL Query] --> [Execute Against Local Data] --> [Response]
-
+```
 
 Solution Explanation
 
@@ -23,37 +24,56 @@ Solution Explanation
 
 **Step-by-Step Setup and Running Instructions**
 Homebrew install: 
+```
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-
+```
 Python 3.11+ (if not already installed, install with: brew install python)
 
 Ollama install: 
+```
   brew install ollama
-    then start it with "ollama serve" or from Homebrew "brew services start ollama""
+```
 
-Git (install: 
+You may start it with
+```
+"ollama serve" or from Homebrew "brew services start ollama""
+```
+
+Git install: 
+```
   brew install git
+```
 
 ----
 
 **Create a project directory**
+```
   mkdir telecom-genai-demo
   cd telecom-genai-demo
   git init # if using git
+```
 
 **Create a virtual environment**
+```
   python3 -m venv venv
   source venv/bin/activate
-
+```
 **Install dependencies**
+```
   pip install chromadb graphql-core langchain ollama
+```
 
 **Pull LLaMA 3.1:8b (8B) model**
+```
   ollama pull llama3.1:8b
-
+```
 **Verify it's running**
+```
   ollama list
+```
 
+**Project folder structure**
+```
 telecom-genai-demo/
 |-- data/
 |   |-- customers.json      # Customer data
@@ -63,27 +83,33 @@ telecom-genai-demo/
 |-- setup_db.py             # Vector DB setup
 |-- README.md               # Instructions
 |-- requirements.txt        # Dependencies
+```
 
 GraphQL Schema
+```
 Files: 
 data/schema.graphql
 data/customers.json
 data/plans.json
+```
 
-Set Up the Vector Database
+Vector Database
+```
 File: setup_db.py
-
+```
 Requirements File
+```
 File: requirements.txt
-
+```
 chromadb==0.4.24
 graphql-core==3.2.3
 langchain==0.1.0
 ollama==0.1.7
-
+```
 Try running the main.py program
-    python main.py
-
+```
+python main.py
+```
 ----
 
 After setup and running the program the output should look like this:
