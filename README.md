@@ -83,3 +83,120 @@ ollama==0.1.7
 
 Try running the main.py program
     python main.py
+
+----
+
+After setup and running the program the output should look like this:
+
+'''
+python main.py
+
+Natural Language Query: Show me all active customers
+Raw LLM Response: query { customers(status: "active") { id name status plan } }
+Generated GraphQL Query: query { customers(status: "active") { id name status plan } }
+Result: [
+  {
+    "id": "1",
+    "name": "John Doe",
+    "status": "active",
+    "plan": "Basic"
+  },
+  {
+    "id": "3",
+    "name": "Bob Johnson",
+    "status": "active",
+    "plan": "Pro"
+  },
+  {
+    "id": "4",
+    "name": "Alice Brown",
+    "status": "active",
+    "plan": "Basic"
+  },
+  {
+    "id": "6",
+    "name": "David Lee",
+    "status": "active",
+    "plan": "Premium"
+  },
+  {
+    "id": "7",
+    "name": "Emma Davis",
+    "status": "active",
+    "plan": "Basic"
+  },
+  {
+    "id": "9",
+    "name": "Grace Taylor",
+    "status": "active",
+    "plan": "Premium"
+  }
+]
+
+Natural Language Query: Show me all inactive customers
+Raw LLM Response: query { customers(status: "inactive") { id name status plan } }
+Generated GraphQL Query: query { customers(status: "inactive") { id name status plan } }
+Result: [
+  {
+    "id": "2",
+    "name": "Jane Smith",
+    "status": "inactive",
+    "plan": "Premium"
+  },
+  {
+    "id": "5",
+    "name": "Charlie Wilson",
+    "status": "inactive",
+    "plan": "Pro"
+  },
+  {
+    "id": "8",
+    "name": "Frank Miller",
+    "status": "inactive",
+    "plan": "Pro"
+  },
+  {
+    "id": "10",
+    "name": "Henry White",
+    "status": "inactive",
+    "plan": "Basic"
+  }
+]
+
+Natural Language Query: Show me all plans
+Raw LLM Response: query { plans { name price } }
+Generated GraphQL Query: query { plans { name price } }
+Result: [
+  {
+    "name": "Basic",
+    "price": 10.99
+  },
+  {
+    "name": "Pro",
+    "price": 19.99
+  },
+  {
+    "name": "Premium",
+    "price": 29.99
+  }
+]
+
+Natural Language Query: List the lowest priced plan
+Raw LLM Response: query { plans(sort: "price") { name price } }
+Generated GraphQL Query: query { lowestPricedPlan { name } }
+Result: [
+  {
+    "name": "Basic"
+  }
+]
+
+Natural Language Query: List the lowest priced plan and its price
+Raw LLM Response: query { lowestPricedPlan { name price } }
+Generated GraphQL Query: query { lowestPricedPlan { name price } }
+Result: [
+  {
+    "name": "Basic",
+    "price": 10.99
+  }
+]
+'''
