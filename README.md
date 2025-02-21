@@ -27,23 +27,20 @@ Python 3.11+ (if not already installed, install with: brew install python)
 Ollama (install with: brew install ollama, then start it with "ollama serve" or from Homebrew "brew services start ollama"")
 Git (install with: brew install git)
 
-# Create a project directory
+**Create a project directory**
 mkdir telecom-genai-demo
 cd telecom-genai-demo
 git init # if using git
 
-# Create a virtual environment
+**Create a virtual environment**
 python3 -m venv venv
 source venv/bin/activate
 
-# Install dependencies
+**Install dependencies**
 pip install chromadb graphql-core langchain ollama
 
-# Install dependencies
-pip install chromadb graphql-core langchain ollama
-
-# Pull LLaMA 3 (8B) model
-ollama pull llama3
+# Pull LLaMA 3.1:8b (8B) model
+ollama pull llama3.1:8b
 
 # Verify it's running
 ollama list
@@ -58,105 +55,14 @@ telecom-genai-demo/
 |-- README.md               # Instructions
 |-- requirements.txt        # Dependencies
 
-Define the GraphQL Schema
-File: data/schema.graphql
-
-type Customer {
-  id: ID!
-  name: String!
-  status: String!
-  plan: String!
-}
-
-type Plan {
-  name: String!
-  price: Float!
-}
-
-type Query {
-  customers(status: String): [Customer!]!
-  plans: [Plan!]!
-  lowestPricedPlan: Plan!
-}
-
-
-Adding Some Data
-File: data/customers.json
-
-[
-  {"id": "1", "name": "John Doe", "status": "active", "plan": "Basic"},
-  {"id": "2", "name": "Jane Smith", "status": "inactive", "plan": "Premium"},
-  {"id": "3", "name": "Bob Johnson", "status": "active", "plan": "Pro"},
-  {"id": "4", "name": "Alice Brown", "status": "active", "plan": "Basic"},
-  {"id": "5", "name": "Charlie Wilson", "status": "inactive", "plan": "Pro"},
-  {"id": "6", "name": "David Lee", "status": "active", "plan": "Premium"},
-  {"id": "7", "name": "Emma Davis", "status": "active", "plan": "Basic"},
-  {"id": "8", "name": "Frank Miller", "status": "inactive", "plan": "Pro"},
-  {"id": "9", "name": "Grace Taylor", "status": "active", "plan": "Premium"},
-  {"id": "10", "name": "Henry White", "status": "inactive", "plan": "Basic"}
-]
-
-File: data/plans.json
-[
-  {"name": "Basic", "price": 10.99},
-  {"name": "Pro", "price": 19.99},
-  {"name": "Premium", "price": 29.99}
-]
+GraphQL Schema
+Files: 
+data/schema.graphql
+data/customers.json
+data/plans.json
 
 Set Up the Vector Database
 File: setup_db.py
-
-import json
-from chromadb import Client
-from langchain.embeddings import OllamaEmbeddings
-
-# Initialize ChromaDB and embeddings
-client = Client()
-collection = client.create_collection("telecom_data")
-embeddings = OllamaEmbeddings(model="llama3")
-
-# Load schema
-with open("data/schema.graphql", "r") as f:
-    schema = f.read()
-
-# Load data
-with open("data/customers.json", "r") as f:
-    customers = json.load(f)
-with open("data/plans.json", "r") as f:
-    plans = json.load(f)
-
-# Add schema to vector DB
-collection.add(
-    documents=[schema],
-    metadatas=[{"type": "schema"}],
-    ids=["schema"]
-)
-
-# Add customer data
-for customer in customers:
-    doc = json.dumps(customer)
-    collection.add(
-        documents=[doc],
-        metadatas=[{"type": "customer"}],
-        ids=[f"customer_{customer['id']}"]
-    )
-
-# Add plan data
-for plan in plans:
-    doc = json.dumps(plan)
-    collection.add(
-        documents=[doc],
-        metadatas=[{"type": "plan"}],
-        ids=[f"plan_{plan['name']}"]
-    )
-
-print("Vector database setup complete!")
-
-
-Now run the Vector DB setup
-    python setup_db.py
-
-For the main.py see file main.py
 
 Requirements File
 File: requirements.txt
