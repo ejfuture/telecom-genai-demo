@@ -2,6 +2,27 @@
 This a work in progress.
 A demo that translates NL queries into GraphQL requests using local Ollama and ChromaDB vector database.
 
+The action: Come up with a demo/PoC that meets the following criteria. Read on for the details.
+
+**Problem Statement**
+Develop a GenAI-powered system that accurately translates natural language (NL) queries into GraphQL requests by dynamically retrieving the GraphQL schema and parameters.
+
+The solution must ensure that generated queries strictly adhere to the schema, preventing hallucinations by leveraging Retrieval-Augmented Generation (RAG) or structured context injection.
+
+**Challenges**
+1. How do we ensure that a GenAI system is only responding to the GraphQL operations that are validated and can be executed against the schema verses a non existing operation that does not exist in the ingested schema. For example if the schema does not contain "listUsers" and an attempt to call it is made, then it would be rejected.
+2. How do we avoid generating false positives and false negatives, hallucinations?
+3. What kind of chunking can help here?
+4. What Foundation models and why?
+
+**Deliverable**
+- Architectrure Diagram
+- Explanation of functionality
+- Develop a schema to go along with it
+- Example data
+
+
+
 **Architecture Diagram**
 ```
 [User NL Query] --> [Python App] --> [Ollama Local Model (LLaMA 3)]
