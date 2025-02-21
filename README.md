@@ -1,4 +1,4 @@
-**Telecom GenAI Demo**
+# Telecom GenAI Demo
 This a work in progress.
 A demo that translates NL queries into GraphQL requests using local Ollama and ChromaDB vector database.
 
@@ -256,3 +256,6 @@ Result: [
 ]
 
 ```
+----
+
+# More about the journey
