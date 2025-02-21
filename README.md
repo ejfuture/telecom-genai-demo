@@ -18,7 +18,9 @@ Solution Explanation
 1. Schema Adherence: Validate generated GraphQL queries against a predefined schema using a GraphQL parser and reject invalid operations.
 2. Hallucination Prevention: RAG retrieves the schema and sample data, ensuring the model generates queries grounded in real context.
 3. Chunking Strategy: Schema and data are stored as small, structured chunks (e.g., per type/field) in the vector DB for precise retrieval.
-4. Foundation Model: We'll use LLaMA 3 (8B) via Ollama locally because it's lightweight, performs well on structured tasks, and runs efficiently on my M2 laptop.
+4. Foundation Model: We'll use llama3.1:8b via Ollama locally because it's reasonably lightweight, performs well on structured tasks, and runs efficiently.
+
+This runs on my MacBook Pro M2 laptop.
 
 ----
 
