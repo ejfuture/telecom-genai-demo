@@ -1,4 +1,4 @@
-# Telecom GenAI Demo
+**Telecom GenAI Demo**
 This a work in progress.
 A demo that translates NL queries into GraphQL requests using local Ollama and ChromaDB vector database.
 
@@ -18,6 +18,8 @@ Solution Explanation
 2. Hallucination Prevention: RAG retrieves the schema and sample data, ensuring the model generates queries grounded in real context.
 3. Chunking Strategy: Schema and data are stored as small, structured chunks (e.g., per type/field) in the vector DB for precise retrieval.
 4. Foundation Model: We'll use LLaMA 3 (8B) via Ollama locally because it's lightweight, performs well on structured tasks, and runs efficiently on my M2 laptop.
+
+----
 
 **Step-by-Step Setup and Running Instructions**
 Homebrew (install with: /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)")
