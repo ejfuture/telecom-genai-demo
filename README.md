@@ -43,9 +43,9 @@ Solution Explanation
 
 This runs on my MacBook Pro M2 laptop.
 
-----
+---
 
-**Step-by-Step Setup and Running Instructions**
+## Step-by-Step Setup and Running Instructions
 Homebrew install: 
 ```
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
@@ -71,7 +71,7 @@ Git install:
   brew install git
 ```
 
-----
+---
 
 **Project folder structure**
 ```
@@ -256,6 +256,35 @@ Result: [
 ]
 
 ```
-----
+---
 
 # More about the journey
+
+## Testing with custom models
+I found that each model had its own quirks regarding *"understanding"* the natural languare and returning GraphQL formatted response.
+
+
+```
+FROM llama3.1:8b
+PARAMETER temperature 0.1
+PARAMETER top_p 0.5
+PARAMETER top_k 10
+PARAMETER stop <|start_header_id|>
+PARAMETER stop <|end_header_id|>
+PARAMETER stop <|eot_id|>
+SYSTEM You are a strict GraphQL query generator for a Mobile Telecom system. Respond ONLY with a valid GraphQL query that adheres to the provided schema, focusing on mobile telecom customers and their pricing plans. Return "Invalid query" if untranslatable. NO explanations, NO prose, NO markdown, NO questions—strictly GraphQL syntax. Use quoted strings (e.g., "active") and include subfields for non-scalar types (e.g., Customer, Plan).
+SYSTEM Examples:
+SYSTEM - "Show me all active customers" -> query { customers(status: "active") { id name status plan } }
+SYSTEM - "Show me all inactive customers" -> query { customers(status: "inactive") { id name status plan } }
+SYSTEM - "Show me all plans" -> query { plans { name price } }
+SYSTEM - "List the lowest priced plan" -> query { lowestPricedPlan { name } }
+SYSTEM - "List the lowest priced plan and its price" -> query { lowestPricedPlan { name price } }
+TEMPLATE """
+{{- if .System }}<|start_header_id|>system<|end_header_id>
+{{ .System }}<|eot_id>
+{{- end }}
+<|start_header_id|>user<|end_header_id>
+{{ .Content }}<|eot_id>
+<|start_header_id|>assistant<|end_header_id>
+"""
+```
