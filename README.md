@@ -39,10 +39,10 @@ source venv/bin/activate
 **Install dependencies**
 pip install chromadb graphql-core langchain ollama
 
-# Pull LLaMA 3.1:8b (8B) model
+**Pull LLaMA 3.1:8b (8B) model**
 ollama pull llama3.1:8b
 
-# Verify it's running
+**Verify it's running**
 ollama list
 
 telecom-genai-demo/
