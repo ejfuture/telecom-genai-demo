@@ -65,7 +65,11 @@ Ollama install:
 
 You may start it with
 ```
-"ollama serve" or from Homebrew "brew services start ollama""
+ollama serve
+
+or from Homebrew
+
+brew services start ollama
 ```
 
 Git install: 
