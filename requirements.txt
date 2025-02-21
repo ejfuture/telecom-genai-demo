@@ -1,0 +1,7 @@
+chromadb==0.4.24
+graphql-core==3.2.3
+langchain==0.1.0
+langchain-community==0.0.20  # Downgraded to a version compatible with langsmith<0.1.0
+ollama==0.1.7
+fastapi==0.112.2
+starlette==0.38.6
