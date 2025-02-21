@@ -1,0 +1,17 @@
+type Customer {
+  id: ID!
+  name: String!
+  status: String!
+  plan: String!
+}
+
+type Plan {
+  name: String!
+  price: Float!
+}
+
+type Query {
+  customers(status: String): [Customer!]!
+  plans: [Plan!]!
+  lowestPricedPlan: [Plan!]!
+}
