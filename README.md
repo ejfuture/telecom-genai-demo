@@ -48,7 +48,9 @@ This runs on my MacBook Pro M2 laptop.
 ## Step-by-Step Setup and Running Instructions
 Homebrew install: 
 
-  ```/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"```
+```
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+```
 
 
 Python 3.11+ (if not already installed:
