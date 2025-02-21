@@ -52,32 +52,6 @@ Git install:
 
 ----
 
-**Create a project directory**
-```
-  mkdir telecom-genai-demo
-  cd telecom-genai-demo
-  git init # if using git
-```
-
-**Create a virtual environment**
-```
-  python3 -m venv venv
-  source venv/bin/activate
-```
-**Install dependencies**
-```
-  pip install chromadb graphql-core langchain ollama
-```
-
-**Pull LLaMA 3.1:8b (8B) model**
-```
-  ollama pull llama3.1:8b
-```
-**Verify it's running**
-```
-  ollama list
-```
-
 **Project folder structure**
 ```
 telecom-genai-demo/
@@ -91,20 +65,47 @@ telecom-genai-demo/
 |-- requirements.txt        # Dependencies
 ```
 
-GraphQL Schema
+**Create a project directory**
 ```
-Files: 
-data/schema.graphql
-data/customers.json
-data/plans.json
+  mkdir telecom-genai-demo
+  cd telecom-genai-demo
+  git init # if using git
 ```
 
-Vector Database
+**Create a virtual environment**
 ```
-File: setup_db.py
+  python3 -m venv venv
+  source venv/bin/activate
+```
+
+**Install dependencies**
+```
+  pip install chromadb graphql-core langchain ollama
+```
+
+**Pull LLaMA 3.1:8b (8B) model**
+```
+  ollama pull llama3.1:8b
+```
+
+**Verify it's running**
+```
+  ollama list
+```
+
+GraphQL Schema
+Files:
+``` 
+touch data/schema.graphql
+touch data/customers.json
+touch data/plans.json
+```
+
+Create the Vector Database
+```
+python setup_db.py
 ```
 Requirements File
-```
 File: requirements.txt
 ```
 chromadb==0.4.24
@@ -119,8 +120,6 @@ python main.py
 ----
 
 After setup and running the program the output should look like this:
-
-```
 
 ```
 python main.py
