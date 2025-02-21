@@ -34,23 +34,25 @@ Ollama install:
 Git (install: 
   brew install git
 
+----
+
 **Create a project directory**
-mkdir telecom-genai-demo
-cd telecom-genai-demo
-git init # if using git
+  mkdir telecom-genai-demo
+  cd telecom-genai-demo
+  git init # if using git
 
 **Create a virtual environment**
-python3 -m venv venv
-source venv/bin/activate
+  python3 -m venv venv
+  source venv/bin/activate
 
 **Install dependencies**
-pip install chromadb graphql-core langchain ollama
+  pip install chromadb graphql-core langchain ollama
 
 **Pull LLaMA 3.1:8b (8B) model**
-ollama pull llama3.1:8b
+  ollama pull llama3.1:8b
 
 **Verify it's running**
-ollama list
+  ollama list
 
 telecom-genai-demo/
 |-- data/
