@@ -10,7 +10,7 @@ Develop a GenAI-powered system that accurately translates natural language (NL) 
 The solution must ensure that generated queries strictly adhere to the schema, preventing hallucinations by leveraging Retrieval-Augmented Generation (RAG) or structured context injection.
 
 **Challenges**
-1. How do we ensure that a GenAI system is only responding to the GraphQL operations that are validated and can be executed against the schema verses a non existing operation that does not exist in the ingested schema. For example if the schema does not contain "listUsers" and an attempt to call it is made, then it would be rejected.
+1. How do we ensure that a GenAI system is only responding to the GraphQL operations that are validated and can be executed against the schema versus a non existing operation that does not exist in the ingested schema. For example if the schema does not contain "listUsers" and an attempt to call it is made, then it would be rejected.
 2. How do we avoid generating false positives and false negatives, hallucinations?
 3. What kind of chunking can help here?
 4. What Foundation models and why?
