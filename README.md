@@ -59,7 +59,7 @@ Ollama install:
   brew install ollama
 ```
 
-You may start it with
+Start as server  or Homebrew service:
 ```
 ollama serve
 
