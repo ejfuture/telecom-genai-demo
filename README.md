@@ -147,8 +147,7 @@ python main.py
 ```
 ---
 ## Changing the model
-There are two locations in the code to change the model.\
-The primary locations are in the `main.py` and `setup_db.py` files.\ 
+There are two locations in the code to change the model. The primary locations are in the `main.py` and `setup_db.py` files. 
 Look for `model_name = "llama3.1:8b"` and replace the model name with the model of your choosing.
 
 ---
