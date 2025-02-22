@@ -24,6 +24,9 @@ The solution must ensure that generated queries strictly adhere to the schema, p
 
 
 **Architecture Diagram**
+
+## 
+Mermaid code
 ```scala
 graph TD
     UserNLQuery["User NL Query"] --> PythonApp["Python App"]
