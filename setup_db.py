@@ -20,11 +20,14 @@ except ValueError:
 # Create the collection
 collection = client.create_collection("telecom_data")
 
+# Define the model
+model_name = "llama3.1:8b"
+
 # Initialize embeddings
 try:
-    embeddings = OllamaEmbeddings(model="llama3.1:8b")
+    embeddings = OllamaEmbeddings(model=model_name)
 except Exception as e:
-    print(f"Error initializing Ollama embeddings: {e}. Ensure 'ollama serve' is running and 'my-llama3.1:8b' is pulled.")
+    print(f"Error initializing Ollama embeddings: {e}. Ensure 'ollama serve' is running and {model_name} is pulled.")
     exit(1)
 
 # Load schema
