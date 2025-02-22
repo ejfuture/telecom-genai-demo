@@ -22,11 +22,12 @@ The solution must ensure that generated queries strictly adhere to the schema, p
 - Example data
 
 
-
+---
 **Architecture Diagram**
+![telecom genai demo architecture diagram](telecom-genai-demo-architecture-diagram.png "architecture diagram")
 
-## 
-Mermaid code
+
+Diagram code - Mermaid
 ```scala
 graph TD
     UserNLQuery["User NL Query"] --> PythonApp["Python App"]
@@ -38,7 +39,7 @@ graph TD
     GeneratedQuery --> ExecuteData["Execute Against Local Data"]
     ExecuteData --> Response["Response"]
 ```
-
+---
 
 Solution Explanation
 
