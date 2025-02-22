@@ -13,7 +13,9 @@ except ValueError:
     print("Error: Collection 'telecom_data' does not exist. Please run 'setup_db.py' first.")
     exit(1)
 
-llm = Ollama(model="llama3.1:8b")
+# Initialize Ollama with your model
+model_name = "llama3.1:8b"
+llm = Ollama(model=model_name)
 
 # Load schema
 with open("data/schema.graphql", "r") as f:
