@@ -25,9 +25,6 @@ The solution must ensure that generated queries strictly adhere to the schema, p
 ---
 **Architecture Diagram**
 ![telecom genai demo architecture diagram](telecom-genai-demo-architecture-diagram.png "architecture diagram")
-<img src="[telecom genai demo architecture diagram](https://github.com/ejfuture/telecom-genai-demo/blob/main/telecom-genai-demo-architecture-diagram.png?raw=true)" alt="Sample Image" width="50%" height="50%">
-
-<img src="[image-url](https://github.com/ejfuture/telecom-genai-demo/blob/main/telecom-genai-demo-architecture-diagram.png?raw=true)" alt="Alt Text" style="width:50%; height:auto;">
 
 Diagram code - Mermaid
 ```scala
