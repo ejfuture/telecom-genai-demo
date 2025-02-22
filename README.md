@@ -24,15 +24,18 @@ The solution must ensure that generated queries strictly adhere to the schema, p
 
 
 **Architecture Diagram**
+```scala
+graph TD
+    UserNLQuery["User NL Query"] --> PythonApp["Python App"]
+    PythonApp --> OllamaModel["Ollama Local Model (llama3.1:8b)"]
+    PythonApp -->|Data Interaction| ChromaDB["ChromaDB Vector Store"]
+    OllamaModel -->|Data Interaction| ChromaDB
+    ChromaDB --> GraphQLSchema["GraphQL Schema + Customer/Plan Data"]
+    ChromaDB --> GeneratedQuery["Generated GraphQL Query"]
+    GeneratedQuery --> ExecuteData["Execute Against Local Data"]
+    ExecuteData --> Response["Response"]
 ```
-[User NL Query] --> [Python App] --> [Ollama Local Model (LLaMA 3)]
-                        |                   |
-                        v                   v
-[ChromaDB Vector Store] <--> [GraphQL Schema + Customer/Plan Data]
-                        |
-                        v
-[Generated GraphQL Query] --> [Execute Against Local Data] --> [Response]
-```
+
 
 Solution Explanation
 
@@ -80,7 +83,7 @@ Git install:
 ---
 
 **Project folder structure**
-```
+```r
 telecom-genai-demo/
 |-- data/
 |   |-- customers.json      # Customer data
@@ -122,7 +125,7 @@ telecom-genai-demo/
 
 GraphQL Schema
 Files:
-``` 
+```
 touch data/schema.graphql
 touch data/customers.json
 touch data/plans.json
@@ -134,7 +137,7 @@ python setup_db.py
 ```
 Requirements File
 File: requirements.txt
-```
+```scala
 python==3.11.11
 chromadb==0.4.24
 graphql-core==3.2.3
@@ -153,7 +156,7 @@ Look for `model_name = "llama3.1:8b"` and replace the model name with the model 
 ---
 After setup and running the program the output should look like this:
 
-```
+```scala
 python main.py
 
 Natural Language Query: Show me all active customers
@@ -291,7 +294,7 @@ OBSERVATION: Overall llama3.1:8b worked the best with no parameter changes neede
 - Various SYSTEM prompts were tried with limited success
 
 Example Modelfile that I tested with.
-```
+```scala
 FROM llama3.1:8b
 PARAMETER temperature 0.1
 PARAMETER top_p 0.5
