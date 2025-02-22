@@ -25,19 +25,9 @@ The solution must ensure that generated queries strictly adhere to the schema, p
 ---
 **Architecture Diagram**
 ![telecom genai demo architecture diagram](telecom-genai-demo-architecture-diagram.png "architecture diagram")
+[Diagram code - Mermaid](architecture_diagram.mermaid)
 
-Diagram code - Mermaid
-```scala
-graph TD
-    UserNLQuery["User NL Query"] --> PythonApp["Python App"]
-    PythonApp --> OllamaModel["Ollama Local Model (llama3.1:8b)"]
-    PythonApp -->|Data Interaction| ChromaDB["ChromaDB Vector Store"]
-    OllamaModel -->|Data Interaction| ChromaDB
-    ChromaDB --> GraphQLSchema["GraphQL Schema + Customer/Plan Data"]
-    ChromaDB --> GeneratedQuery["Generated GraphQL Query"]
-    GeneratedQuery --> ExecuteData["Execute Against Local Data"]
-    ExecuteData --> Response["Response"]
-```
+
 ---
 
 Solution Explanation
