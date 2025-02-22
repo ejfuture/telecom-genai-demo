@@ -268,8 +268,23 @@ Result: [
 
 ## Testing with custom models
 I found that each model had its own quirks regarding *"understanding"* the natural languare and returning GraphQL formatted response.
+Often the models return more than needed or not the correct formatting for GraphQL or the model did not honor the SYSTEM settings.
+
+I also worked on Few-Shot Prompt to improve the quality of the response but, the results still varied more than I liked so I looked into Function Calling with a user defined function (more work is needed here).
 
 
+### Models tested
+- Mistral AI -> mistral, codestral
+- Meta       -> llama3, llama3.1:8b llama3.2
+- Microsoft  -> Phi4
+
+### Performance Improvements Tested
+- Few-Shot Prompt
+- Custom model settings with Modelfile
+- Function Calling (requires a model that supported it)
+- Various SYSTEM prompts were tried with limited success
+
+Example Modelfile that I tested with.
 ```
 FROM llama3.1:8b
 PARAMETER temperature 0.1
