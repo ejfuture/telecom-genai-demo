@@ -49,9 +49,9 @@ Homebrew install:
 ```
 
 
-Python 3.11+ (if not already installed:
+Python 3.11+ (if not already installed):
 ```
-brew install python)
+brew install python
 ```
 
 Ollama install: 
