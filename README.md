@@ -272,6 +272,8 @@ Often the models return more than needed or not the correct formatting for Graph
 
 I also worked on Few-Shot Prompt to improve the quality of the response but, the results still varied more than I liked so I looked into Function Calling with a user defined function (more work is needed here).
 
+OBSERVATION: Overall llama3.1:8b worked the best with no parameter changes needed.
+
 
 ### Models tested
 - Mistral AI -> mistral, codestral
