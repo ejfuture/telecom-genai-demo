@@ -59,12 +59,13 @@ Ollama install:
   brew install ollama
 ```
 
-Start as server  or Homebrew service:
+Start as server  or Homebrew service:\
+Ollama from terminal to see logs
 ```
 ollama serve
-
-or from Homebrew
-
+```
+Homebrew
+```
 brew services start ollama
 ```
 
