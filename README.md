@@ -280,6 +280,7 @@ OBSERVATION: Overall llama3.1:8b worked the best with no parameter changes neede
 - Mistral AI -> mistral, codestral
 - Meta       -> llama3, llama3.1:8b llama3.2
 - Microsoft  -> Phi4
+- IBM        -> granite-code 2B, granite-code:8b-instruct-q4_K_S
 
 ### Performance Improvements Tested
 - Few-Shot Prompt
